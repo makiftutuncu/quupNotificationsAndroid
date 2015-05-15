@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">quup Notifications</string>
+
+    <string name="error">An error occurred!</string>
+    <string name="error_nonEmpty">This value is cannot be empty!</string>
+
+    <string name="loading">Loading, please wait</string>
+
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_login">Log In</string>
 </resources>

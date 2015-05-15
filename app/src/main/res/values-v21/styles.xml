@@ -1,0 +1,9 @@
+<resources>
+
+    <!-- Application theme. -->
+    <style name="QuupNotifications" parent="QuupNotifications.Base">
+        <!--   Navigation bar -->
+        <item name="android:navigationBarColor">@color/primary</item>
+    </style>
+
+</resources>
