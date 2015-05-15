@@ -20,64 +20,72 @@
         msv:msv_loadingView="@layout/loading"
         msv:msv_viewState="content">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/spacing_small"
-                    android:src="@mipmap/ic_person" />
+                    android:src="@mipmap/quup" />
 
-                <EditText
-                    android:id="@+id/editText_login_username"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/login_username"
-                    android:singleLine="true" />
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:src="@mipmap/ic_person" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/editText_login_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/login_username"
+                        android:singleLine="true" />
+                </LinearLayout>
 
-                <ImageView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:src="@mipmap/ic_key" />
+
+                    <EditText
+                        android:id="@+id/editText_login_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/login_password"
+                        android:inputType="textPassword" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/button_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/spacing_small"
-                    android:src="@mipmap/ic_key" />
-
-                <EditText
-                    android:id="@+id/editText_login_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/login_password"
-                    android:inputType="textPassword" />
-
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:background="@color/primary"
+                    android:text="@string/login_login"
+                    android:textColor="@color/white" />
             </LinearLayout>
-
-            <Button
-                android:id="@+id/button_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_medium"
-                android:text="@string/login_login" />
-
-        </LinearLayout>
-
+        </ScrollView>
     </com.kennyc.view.MultiStateView>
-
 </RelativeLayout>
