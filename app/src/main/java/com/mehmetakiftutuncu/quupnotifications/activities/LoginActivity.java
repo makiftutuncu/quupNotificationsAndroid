@@ -1,4 +1,4 @@
-package com.mehmetakiftutuncu.quupnotifications;
+package com.mehmetakiftutuncu.quupnotifications.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,9 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.kennyc.view.MultiStateView;
+import com.mehmetakiftutuncu.quupnotifications.R;
+import com.mehmetakiftutuncu.quupnotifications.tasks.LoginTask;
 import com.orhanobut.logger.Logger;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements LoginTask.OnLoginListener {
     private Toolbar mToolbar;
     private MultiStateView multiStateView;
     private EditText mUsername;
@@ -64,9 +66,11 @@ public class LoginActivity extends AppCompatActivity {
                 String username = mUsername.getText().toString();
                 String password = mPassword.getText().toString();
 
-                Logger.d("Logging in as username: %s and password: %s", username, password);
+                Logger.d("Logging in...");
 
                 changeStateTo(MultiStateView.ViewState.LOADING);
+
+                new LoginTask(this, username, password, this).execute();
             }
         }
     }
@@ -83,5 +87,15 @@ public class LoginActivity extends AppCompatActivity {
         if (multiStateView != null && !multiStateView.getViewState().equals(newState)) {
             multiStateView.setViewState(newState);
         }
+    }
+
+    @Override
+    public void onLoginSuccess() {
+        Logger.d("Successfully logged in!");
+    }
+
+    @Override
+    public void onLoginFailed() {
+        changeStateTo(MultiStateView.ViewState.ERROR);
     }
 }

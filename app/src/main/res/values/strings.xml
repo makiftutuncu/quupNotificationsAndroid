@@ -6,6 +6,9 @@
 
     <string name="loading">Loading, please wait</string>
 
+    <string name="main_title">Welcome to</string>
+    <string name="main_subtitle">Notifications!</string>
+
     <string name="login_username">Username</string>
     <string name="login_password">Password</string>
     <string name="login_login">Log In</string>
