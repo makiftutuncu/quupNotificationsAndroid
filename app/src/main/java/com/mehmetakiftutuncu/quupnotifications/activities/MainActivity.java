@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 
@@ -34,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
+
+        if (!TextUtils.isEmpty(PreferenceUtils.getUsername())) {
+            finish();
+            startActivity(new Intent(MainActivity.this, WelcomeActivity.class));
+        }
 
         // Check device for Play Services APK. If check succeeds, proceed with GCM registration.
         if (GCMUtils.checkPlayServices(this)) {

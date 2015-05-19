@@ -12,15 +12,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/toolbar"
         android:gravity="center_horizontal"
         android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/main_title"
-            android:textSize="@dimen/textSize_large" />
 
         <ImageView
             android:id="@+id/imageView_logo"
@@ -31,7 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/main_subtitle"
+            android:text="@string/main_welcome"
             android:textSize="@dimen/textSize_large" />
 
         <Button

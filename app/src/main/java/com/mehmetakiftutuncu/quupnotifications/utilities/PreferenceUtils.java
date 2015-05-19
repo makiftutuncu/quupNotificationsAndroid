@@ -1,28 +1,26 @@
 package com.mehmetakiftutuncu.quupnotifications.utilities;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.preference.PreferenceManager;
 
 import com.orhanobut.logger.Logger;
+import com.pixplicity.easyprefs.library.Prefs;
 
 public class PreferenceUtils {
-    private static final String PROPERTY_REG_ID      = "registration_id";
-    private static final String PROPERTY_APP_VERSION = "appVersion";
+    private static final String KEY_REG_ID      = "registration_id";
+    private static final String KEY_USERNAME    = "username";
+    private static final String KEY_APP_VERSION = "appVersion";
 
     public static String getRegistrationId(Context context) {
-        final SharedPreferences prefs = getPreferences(context);
-
-        String registrationId = prefs.getString(PROPERTY_REG_ID, "");
+        String registrationId = Prefs.getString(KEY_REG_ID, "");
 
         if (registrationId.isEmpty()) {
             Logger.e("Registration id is not found!");
 
             return "";
         } else {
-            int registeredVersion = prefs.getInt(PROPERTY_APP_VERSION, Integer.MIN_VALUE);
+            int registeredVersion = Prefs.getInt(KEY_APP_VERSION, Integer.MIN_VALUE);
             int currentVersion    = getAppVersion(context);
 
             if (registeredVersion != currentVersion) {
@@ -36,19 +34,20 @@ public class PreferenceUtils {
     }
 
     public static void setRegistrationId(Context context, String regId) {
-        final SharedPreferences prefs = getPreferences(context);
         int appVersion = getAppVersion(context);
 
         Logger.d("Saving registration id... id: %s, version %s", regId, appVersion);
 
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(PROPERTY_REG_ID, regId);
-        editor.putInt(PROPERTY_APP_VERSION, appVersion);
-        editor.apply();
+        Prefs.putString(KEY_REG_ID, regId);
+        Prefs.putInt(KEY_APP_VERSION, appVersion);
     }
 
-    private static SharedPreferences getPreferences(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context);
+    public static String getUsername() {
+        return Prefs.getString(KEY_USERNAME, "");
+    }
+
+    public static void setUsername(String username) {
+        Prefs.putString(KEY_USERNAME, username);
     }
 
     private static int getAppVersion(Context context) {

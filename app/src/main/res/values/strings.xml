@@ -1,15 +1,19 @@
 <resources>
     <string name="app_name">quup Notifications</string>
 
-    <string name="error">An error occurred!</string>
+    <string name="error_title">An error occurred!</string>
+    <string name="error_details">Make sure your device is connected to the internet.\n\nIf you are trying to login, your username or password might be invalid.\n\nOtherwise, quup Notifications Server or quup itself might be down.\n\nPlease try again later and if error continues, inform the developer.</string>
+    <string name="error_back">Go Back</string>
     <string name="error_nonEmpty">This value is cannot be empty!</string>
 
     <string name="loading">Loading, please wait</string>
 
-    <string name="main_title">Welcome to</string>
-    <string name="main_subtitle">Notifications!</string>
+    <string name="main_welcome">Welcome to quup Notifications!</string>
 
     <string name="login_username">Username</string>
     <string name="login_password">Password</string>
     <string name="login_login">Log In</string>
+
+    <string name="welcome_info">You are logged in as</string>
+    <string name="welcome_logout">Log Out</string>
 </resources>
