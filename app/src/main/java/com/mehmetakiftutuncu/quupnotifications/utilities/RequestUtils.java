@@ -29,4 +29,11 @@ public class RequestUtils {
         public static final String LOGIN         = SERVER + "login";
         public static final String LOGOUT        = SERVER + "logout";
     }
+
+    public static class Quup {
+        public static final String SERVER = "https://quup.com/";
+
+        public static final String NOTIFICATION      = SERVER + "my/NotificationRedirect/";
+        public static final String ALL_NOTIFICATIONS = SERVER + "my/allnotification";
+    }
 }
