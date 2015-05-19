@@ -13,9 +13,9 @@ import com.mehmetakiftutuncu.quupnotifications.R;
 import com.mehmetakiftutuncu.quupnotifications.receivers.NotificationReceiver;
 import com.mehmetakiftutuncu.quupnotifications.utilities.RequestUtils;
 import com.orhanobut.logger.Logger;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import br.com.goncalves.pugnotification.notification.Load;
 import br.com.goncalves.pugnotification.notification.PugNotification;
@@ -69,6 +69,7 @@ public class NotificationService extends IntentService {
                 if (jsonArray.length() == 1) {
                     firstNotification
                             .button(R.mipmap.ic_person_action, getString(R.string.notifications_profile), profilePendingIntent)
+                            .largeIcon(Picasso.with(getApplicationContext()).load(firstQuupNotification.from.avatar).get())
                             .simple()
                             .build();
                 } else {

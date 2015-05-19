@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">quup Bildirimleri</string>
+
+    <string name="error_title">Hata: Hay aksi!</string>
+    <string name="error_details">Cihazınızın internete bağlı olduğundan emin olun.\n\nEğer giriş yapmaya çalışıyorsanız, kullanıcı adınız veya şifreniz yanlış yazılmış olabilir.\n\nAyrıca, quup Bildirimleri Sunucusu ya da quup\'un kendisi çalışmıyor da olabilir.\n\nLütfen daha sonra tekrar deneyin ve eğer hata devam ederse, geliştiriciyi bilgilendirin.</string>
+    <string name="error_back">Geri Dön</string>
+    <string name="error_nonEmpty">Bu değer boş olamaz!</string>
+
+    <string name="loading">Yükleniyor, lütfen bekleyin</string>
+
+    <string name="main_welcome">quup Bildirimleri\'ne Hoş Geldiniz!</string>
+
+    <string name="login_username">Kullanıcı Adı</string>
+    <string name="login_password">Şifre</string>
+    <string name="login_login">Giriş</string>
+
+    <string name="welcome_info">Şu kullanıcı olarak giriş yaptınız:</string>
+    <string name="welcome_logout">Çıkış</string>
+
+    <string name="notifications_comment">quup\'unuza yorum yaptı.</string>
+    <string name="notifications_like">quup\'unuzu beğendi.</string>
+    <string name="notifications_commentLike">yorumunuzu beğendi.</string>
+    <string name="notifications_follow">sizi takip etmeye başladı.</string>
+    <string name="notifications_mention">sizden bahsetti.</string>
+    <string name="notifications_message">size mesaj gönderdi.</string>
+    <string name="notifications_otherUsers">ve %1d başkası</string>
+    <string name="notifications_title">%1d Bildirim</string>
+    <string name="notifications_profile">Kullanıcıya Git</string>
+</resources>

@@ -13,8 +13,17 @@ android {
     }
     buildTypes {
         release {
+            zipAlignEnabled true
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            shrinkResources false
+            debuggable false
+
+        }
+
+        debug {
+            zipAlignEnabled true
+            minifyEnabled false
+            debuggable true
         }
     }
 }
@@ -32,5 +41,6 @@ dependencies {
     compile 'com.orhanobut:logger:1.8'
     compile 'com.pixplicity.easyprefs:library:1.5'
     compile 'com.squareup.okhttp:okhttp:2.3.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'pl.tajchert:waitingdots:0.2.0'
 }
