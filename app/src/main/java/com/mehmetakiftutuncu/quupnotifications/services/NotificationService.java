@@ -11,6 +11,7 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.mehmetakiftutuncu.models.QuupNotification;
 import com.mehmetakiftutuncu.quupnotifications.R;
 import com.mehmetakiftutuncu.quupnotifications.receivers.NotificationReceiver;
+import com.mehmetakiftutuncu.quupnotifications.utilities.PreferenceUtils;
 import com.mehmetakiftutuncu.quupnotifications.utilities.RequestUtils;
 import com.orhanobut.logger.Logger;
 import com.squareup.picasso.Picasso;
@@ -39,15 +40,24 @@ public class NotificationService extends IntentService {
                 String messagesJsonString      = extras.getString("messages", "");
 
                 if (!TextUtils.isEmpty(notificationsJsonString)) {
-                    parseAndShowNotification(notificationsJsonString);
+                    if (!isSameNotification(notificationsJsonString, PreferenceUtils.getLastNotification("notifications"))) {
+                        parseAndShowNotification(notificationsJsonString);
+                        PreferenceUtils.setLastNotification("notifications", notificationsJsonString);
+                    }
                 }
 
                 if (!TextUtils.isEmpty(mentionsJsonString)) {
-                    parseAndShowNotification(mentionsJsonString);
+                    if (!isSameNotification(notificationsJsonString, PreferenceUtils.getLastNotification("mentions"))) {
+                        parseAndShowNotification(mentionsJsonString);
+                        PreferenceUtils.setLastNotification("mentions", mentionsJsonString);
+                    }
                 }
 
                 if (!TextUtils.isEmpty(messagesJsonString)) {
-                    parseAndShowNotification(messagesJsonString);
+                    if (!isSameNotification(notificationsJsonString, PreferenceUtils.getLastNotification("messages"))) {
+                        parseAndShowNotification(messagesJsonString);
+                        PreferenceUtils.setLastNotification("messages", messagesJsonString);
+                    }
                 }
             }
         }
@@ -173,5 +183,9 @@ public class NotificationService extends IntentService {
             default:
                 return -1;
         }
+    }
+
+    private boolean isSameNotification(String jsonString, int previousHash) {
+        return jsonString.hashCode() == previousHash;
     }
 }

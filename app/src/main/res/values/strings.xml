@@ -8,7 +8,7 @@
 
     <string name="loading">Loading, please wait</string>
 
-    <string name="main_welcome">Welcome to quup Notifications!</string>
+    <string name="main_welcome">Welcome to\nquup Notifications!</string>
 
     <string name="login_username">Username</string>
     <string name="login_password">Password</string>

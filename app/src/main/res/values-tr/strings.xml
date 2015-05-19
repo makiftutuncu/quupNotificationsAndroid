@@ -9,7 +9,7 @@
 
     <string name="loading">Yükleniyor, lütfen bekleyin</string>
 
-    <string name="main_welcome">quup Bildirimleri\'ne Hoş Geldiniz!</string>
+    <string name="main_welcome">quup Bildirimleri\'ne\nHoş Geldiniz!</string>
 
     <string name="login_username">Kullanıcı Adı</string>
     <string name="login_password">Şifre</string>

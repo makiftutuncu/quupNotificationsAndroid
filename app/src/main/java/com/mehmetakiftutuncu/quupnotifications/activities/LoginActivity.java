@@ -53,45 +53,51 @@ public class LoginActivity extends AppCompatActivity implements LoginTask.OnLogi
     }
 
     private void login() {
-        if (mUsername != null && mPassword != null) {
-            View focus     = null;
-            boolean cancel = false;
+        View focus     = null;
+        boolean cancel = false;
 
-            if (isUsernameEmpty()) {
-                Logger.d("Failed to login, username is empty!");
-                mUsername.setError(getString(R.string.error_nonEmpty));
-                focus = mUsername;
-                cancel = true;
-            } else if (isPasswordEmpty()) {
-                Logger.d("Failed to login, password is empty!");
-                mPassword.setError(getString(R.string.error_nonEmpty));
-                focus = mPassword;
-                cancel = true;
+        if (isUsernameEmpty()) {
+            Logger.d("Failed to login, username is empty!");
+            mUsername.setError(getString(R.string.error_nonEmpty));
+            focus = mUsername;
+            cancel = true;
+        } else if (isPasswordEmpty()) {
+            Logger.d("Failed to login, password is empty!");
+            mPassword.setError(getString(R.string.error_nonEmpty));
+            focus = mPassword;
+            cancel = true;
+        }
+
+        if (cancel) {
+            if (focus != null) {
+                focus.requestFocus();
             }
+        } else {
+            String username = getUsername();
+            String password = getPassword();
 
-            if (cancel) {
-                if (focus != null) {
-                    focus.requestFocus();
-                }
-            } else {
-                String username = mUsername.getText().toString();
-                String password = mPassword.getText().toString();
+            Logger.d("Logging in as %s...", username);
 
-                Logger.d("Logging in as %s...", username);
+            changeStateTo(MultiStateView.ViewState.LOADING);
 
-                changeStateTo(MultiStateView.ViewState.LOADING);
-
-                new LoginTask(this, username, password, this).execute();
-            }
+            new LoginTask(this, username, password, this).execute();
         }
     }
 
+    private String getUsername() {
+        return mUsername != null ? mUsername.getText().toString().trim() : null;
+    }
+
+    private String getPassword() {
+        return mPassword != null ? mPassword.getText().toString().trim() : null;
+    }
+
     private boolean isUsernameEmpty() {
-        return mUsername == null || TextUtils.isEmpty(mUsername.getText());
+        return TextUtils.isEmpty(getUsername());
     }
 
     private boolean isPasswordEmpty() {
-        return mPassword == null || TextUtils.isEmpty(mPassword.getText());
+        return TextUtils.isEmpty(getPassword());
     }
 
     private void changeStateTo(MultiStateView.ViewState newState) {
@@ -106,7 +112,7 @@ public class LoginActivity extends AppCompatActivity implements LoginTask.OnLogi
 
     @Override
     public void onLoginSuccess() {
-        Logger.d("Successfully logged in as %s!", mUsername.getText().toString());
+        Logger.d("Successfully logged in as %s!", getUsername());
         finish();
         startActivity(new Intent(this, WelcomeActivity.class));
     }

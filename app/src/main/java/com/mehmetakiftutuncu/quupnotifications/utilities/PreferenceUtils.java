@@ -8,8 +8,10 @@ import com.orhanobut.logger.Logger;
 import com.pixplicity.easyprefs.library.Prefs;
 
 public class PreferenceUtils {
-    private static final String KEY_REG_ID      = "registration_id";
-    private static final String KEY_USERNAME    = "username";
+    private static final String KEY_REG_ID                = "registration_id";
+    private static final String KEY_USERNAME              = "username";
+    private static final String KEY_LASTNOTIFICATION_HASH = "lastNotificationHash_";
+
     private static final String KEY_APP_VERSION = "appVersion";
 
     public static String getRegistrationId(Context context) {
@@ -48,6 +50,14 @@ public class PreferenceUtils {
 
     public static void setUsername(String username) {
         Prefs.putString(KEY_USERNAME, username);
+    }
+
+    public static int getLastNotification(String key) {
+        return Prefs.getInt(KEY_LASTNOTIFICATION_HASH + key, -1);
+    }
+
+    public static void setLastNotification(String key, String jsonString) {
+        Prefs.putInt(KEY_LASTNOTIFICATION_HASH + key, jsonString.hashCode());
     }
 
     private static int getAppVersion(Context context) {
