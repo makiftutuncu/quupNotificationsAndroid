@@ -3,7 +3,7 @@
     <string name="app_name">quup Bildirimleri</string>
 
     <string name="error_title">Hata: Hay aksi!</string>
-    <string name="error_details">Cihazınızın internete bağlı olduğundan emin olun.\n\nEğer giriş yapmaya çalışıyorsanız, kullanıcı adınız veya şifreniz yanlış yazılmış olabilir.\n\nAyrıca, quup Bildirimleri Sunucusu ya da quup\'un kendisi çalışmıyor da olabilir.\n\nLütfen daha sonra tekrar deneyin ve eğer hata devam ederse, geliştiriciyi bilgilendirin.</string>
+    <string name="error_details">Cihazınızın internete bağlı olduğundan emin olun.\n\nEğer oturum açmaya çalışıyorsanız, kullanıcı adınız veya şifreniz yanlış yazılmış olabilir.\n\nAyrıca, quup Bildirimleri Sunucusu ya da quup\'un kendisi çalışmıyor da olabilir.\n\nLütfen daha sonra tekrar deneyin ve eğer hata devam ederse, geliştiriciyi bilgilendirin.</string>
     <string name="error_back">Geri Dön</string>
     <string name="error_nonEmpty">Bu değer boş olamaz!</string>
 
@@ -15,10 +15,10 @@
 
     <string name="login_username">Kullanıcı Adı</string>
     <string name="login_password">Şifre</string>
-    <string name="login_login">Giriş</string>
+    <string name="login_login">Oturum Aç</string>
 
-    <string name="welcome_info">Şu kullanıcı olarak giriş yaptınız:</string>
-    <string name="welcome_logout">Çıkış</string>
+    <string name="welcome_info">Oturum Açan Kullanıcı:</string>
+    <string name="welcome_logout">Oturumu Kapat</string>
 
     <string name="more_more">Daha Fazlası</string>
     <string name="more_about_title">Hakkında</string>
