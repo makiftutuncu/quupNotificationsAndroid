@@ -1,4 +1,4 @@
-package com.mehmetakiftutuncu.models;
+package com.mehmetakiftutuncu.quupnotifications.models;
 
 public enum NotificationTypes {
     Comment,

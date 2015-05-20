@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.mehmetakiftutuncu.models.QuupNotification;
+import com.mehmetakiftutuncu.quupnotifications.models.QuupNotification;
 import com.mehmetakiftutuncu.quupnotifications.R;
 import com.mehmetakiftutuncu.quupnotifications.receivers.NotificationReceiver;
 import com.mehmetakiftutuncu.quupnotifications.utilities.PreferenceUtils;
@@ -119,14 +119,17 @@ public class NotificationService extends IntentService {
         Intent notificationIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(RequestUtils.Quup.NOTIFICATION + quupNotification.id));
         PendingIntent notificationPendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, 0);
 
-        return PugNotification.with(getApplicationContext())
+        Load load = PugNotification.with(getApplicationContext())
                 .load()
                 .autoCancel(true)
                 .title(getTitle(quupNotification))
                 .message(getMessage(quupNotification))
                 .smallIcon(getSmallIcon(quupNotification))
                 .largeIcon(R.mipmap.ic_launcher)
-                .click(notificationPendingIntent);
+                .click(notificationPendingIntent)
+                .sound(Uri.parse(PreferenceUtils.getRingtone()));
+
+        return PreferenceUtils.getVibration() ? load.vibrate(new long[] {1000, 1000}) : load;
     }
 
     private String getTitle(QuupNotification quupNotification) {

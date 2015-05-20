@@ -9,6 +9,8 @@
 
     <string name="loading">Yükleniyor, lütfen bekleyin</string>
 
+    <string name="feedback_subject">quup Bildirimleri Hakkında</string>
+
     <string name="main_welcome">quup Bildirimleri\'ne\nHoş Geldiniz!</string>
 
     <string name="login_username">Kullanıcı Adı</string>
@@ -17,6 +19,17 @@
 
     <string name="welcome_info">Şu kullanıcı olarak giriş yaptınız:</string>
     <string name="welcome_logout">Çıkış</string>
+
+    <string name="more_more">Daha Fazlası</string>
+    <string name="more_notifications_title">Bildirimler</string>
+    <string name="more_notifications_vibration">Titreşim</string>
+    <string name="more_notifications_vibration_summary">Bildirim alındığında cihaz titresin.</string>
+    <string name="more_notifications_ringtone">Zil Sesi</string>
+    <string name="more_about_title">Hakkında</string>
+    <string name="more_about_rate">Oy Verin &amp; Yorum Yapın</string>
+    <string name="more_about_feedback">Geri Bildirim Gönderin</string>
+    <string name="more_about_version">Sürüm</string>
+    <string name="more_about_openSource">Açık Kaynak Lisanslar</string>
 
     <string name="notifications_comment">quup\'unuza yorum yaptı.</string>
     <string name="notifications_like">quup\'unuzu beğendi.</string>

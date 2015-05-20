@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
+import com.mehmetakiftutuncu.quupnotifications.fragments.MoreFragment;
 import com.orhanobut.logger.Logger;
 import com.pixplicity.easyprefs.library.Prefs;
 
@@ -64,10 +65,28 @@ public class PreferenceUtils {
         Prefs.putString(KEY_LASTNOTIFICATION_HASH + key, hash);
     }
 
-    private static int getAppVersion(Context context) {
+    public static boolean getVibration() {
+        return Prefs.getBoolean(MoreFragment.PREFERENCE_VIBRATION, true);
+    }
+
+    public static String getRingtone() {
+        return Prefs.getString(MoreFragment.PREFERENCE_RINGTONE, "content://settings/system/notification_sound");
+    }
+
+    public static int getAppVersion(Context context) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
             return packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            // Should never happen!
+            throw new RuntimeException("Could not get package name: " + e.getMessage());
+        }
+    }
+
+    public static String getAppVersionName(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return packageInfo.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             // Should never happen!
             throw new RuntimeException("Could not get package name: " + e.getMessage());

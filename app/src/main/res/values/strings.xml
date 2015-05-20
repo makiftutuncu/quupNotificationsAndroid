@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">quup Notifications</string>
 
@@ -8,6 +9,8 @@
 
     <string name="loading">Loading, please wait</string>
 
+    <string name="feedback_subject">About quup Notifications</string>
+
     <string name="main_welcome">Welcome to\nquup Notifications!</string>
 
     <string name="login_username">Username</string>
@@ -16,6 +19,17 @@
 
     <string name="welcome_info">You are logged in as:</string>
     <string name="welcome_logout">Log Out</string>
+
+    <string name="more_more">More</string>
+    <string name="more_notifications_title">Notifications</string>
+    <string name="more_notifications_vibration">Vibration</string>
+    <string name="more_notifications_vibration_summary">Device will vibrate when notification is received.</string>
+    <string name="more_notifications_ringtone">Ringtone</string>
+    <string name="more_about_title">About</string>
+    <string name="more_about_rate">Rate &amp; Comment</string>
+    <string name="more_about_feedback">Send Feedback</string>
+    <string name="more_about_version">Version</string>
+    <string name="more_about_openSource">Open Source Licenses</string>
 
     <string name="notifications_comment">commented on your quup.</string>
     <string name="notifications_like">liked your quup.</string>

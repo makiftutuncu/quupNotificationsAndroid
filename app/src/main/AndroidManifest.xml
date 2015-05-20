@@ -46,6 +46,8 @@
 
         <activity android:name=".activities.WelcomeActivity" />
 
+        <activity android:name=".activities.MoreActivity" />
+
         <!--
           WakefulBroadcastReceiver that will receive intents from GCM
           services and hand them to the custom IntentService.
