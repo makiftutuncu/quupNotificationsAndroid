@@ -12,8 +12,6 @@ import com.orhanobut.logger.Logger;
 public class NotificationReceiver extends WakefulBroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Logger.d("Received a GCM message!");
-
         // Explicitly specify that GcmIntentService will handle the intent.
         ComponentName comp = new ComponentName(context.getPackageName(), NotificationService.class.getName());
 

@@ -40,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
             finish();
             startActivity(new Intent(MainActivity.this, WelcomeActivity.class));
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         // Check device for Play Services APK. If check succeeds, proceed with GCM registration.
         if (GCMUtils.checkPlayServices(this)) {
@@ -51,13 +56,5 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Logger.e("No valid Google Play Services APK found!");
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        // Check device for Play Services APK.
-        GCMUtils.checkPlayServices(this);
     }
 }

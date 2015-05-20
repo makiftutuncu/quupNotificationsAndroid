@@ -16,6 +16,8 @@ import com.mehmetakiftutuncu.quupnotifications.utilities.RequestUtils;
 import com.orhanobut.logger.Logger;
 import com.squareup.picasso.Picasso;
 
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.json.JSONArray;
 
 import br.com.goncalves.pugnotification.notification.Load;
@@ -40,21 +42,21 @@ public class NotificationService extends IntentService {
                 String messagesJsonString      = extras.getString("messages", "");
 
                 if (!TextUtils.isEmpty(notificationsJsonString)) {
-                    if (!isSameNotification(notificationsJsonString, PreferenceUtils.getLastNotification("notifications"))) {
+                    if (!isSameNotification("notifications", notificationsJsonString)) {
                         parseAndShowNotification(notificationsJsonString);
                         PreferenceUtils.setLastNotification("notifications", notificationsJsonString);
                     }
                 }
 
                 if (!TextUtils.isEmpty(mentionsJsonString)) {
-                    if (!isSameNotification(notificationsJsonString, PreferenceUtils.getLastNotification("mentions"))) {
+                    if (!isSameNotification("mentions", mentionsJsonString)) {
                         parseAndShowNotification(mentionsJsonString);
                         PreferenceUtils.setLastNotification("mentions", mentionsJsonString);
                     }
                 }
 
                 if (!TextUtils.isEmpty(messagesJsonString)) {
-                    if (!isSameNotification(notificationsJsonString, PreferenceUtils.getLastNotification("messages"))) {
+                    if (!isSameNotification("messages", messagesJsonString)) {
                         parseAndShowNotification(messagesJsonString);
                         PreferenceUtils.setLastNotification("messages", messagesJsonString);
                     }
@@ -185,7 +187,8 @@ public class NotificationService extends IntentService {
         }
     }
 
-    private boolean isSameNotification(String jsonString, int previousHash) {
-        return jsonString.hashCode() == previousHash;
+    private boolean isSameNotification(String key, String jsonString) {
+        String hash = new String(Hex.encodeHex(DigestUtils.sha(jsonString)));
+        return hash.equals(PreferenceUtils.getLastNotification(key));
     }
 }

@@ -7,6 +7,9 @@ import android.content.pm.PackageManager;
 import com.orhanobut.logger.Logger;
 import com.pixplicity.easyprefs.library.Prefs;
 
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.codec.digest.DigestUtils;
+
 public class PreferenceUtils {
     private static final String KEY_REG_ID                = "registration_id";
     private static final String KEY_USERNAME              = "username";
@@ -52,12 +55,13 @@ public class PreferenceUtils {
         Prefs.putString(KEY_USERNAME, username);
     }
 
-    public static int getLastNotification(String key) {
-        return Prefs.getInt(KEY_LASTNOTIFICATION_HASH + key, -1);
+    public static String getLastNotification(String key) {
+        return Prefs.getString(KEY_LASTNOTIFICATION_HASH + key, "");
     }
 
     public static void setLastNotification(String key, String jsonString) {
-        Prefs.putInt(KEY_LASTNOTIFICATION_HASH + key, jsonString.hashCode());
+        String hash = new String(Hex.encodeHex(DigestUtils.sha(jsonString)));
+        Prefs.putString(KEY_LASTNOTIFICATION_HASH + key, hash);
     }
 
     private static int getAppVersion(Context context) {

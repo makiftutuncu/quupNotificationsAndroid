@@ -42,5 +42,6 @@ dependencies {
     compile 'com.pixplicity.easyprefs:library:1.5'
     compile 'com.squareup.okhttp:okhttp:2.3.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'commons-codec:commons-codec:1.4'
     compile 'pl.tajchert:waitingdots:0.2.0'
 }
