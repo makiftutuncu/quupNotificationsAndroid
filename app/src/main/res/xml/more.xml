@@ -17,22 +17,6 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/more_notifications_title">
-
-        <SwitchPreference
-            android:defaultValue="true"
-            android:key="preference_vibration"
-            android:title="@string/more_notifications_vibration"
-            android:summary="@string/more_notifications_vibration_summary"/>
-
-        <RingtonePreference
-            android:key="preference_ringtone"
-            android:ringtoneType="notification"
-            android:showDefault="true"
-            android:title="@string/more_notifications_ringtone" />
-
-    </PreferenceCategory>
-
     <PreferenceCategory android:title="@string/more_about_title">
 
         <Preference

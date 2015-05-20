@@ -25,8 +25,6 @@ import de.psdev.licensesdialog.model.Notices;
  * @author mehmetakiftutuncu
  */
 public class MoreFragment extends PreferenceFragment {
-    public static final String PREFERENCE_VIBRATION = "preference_vibration";
-    public static final String PREFERENCE_RINGTONE  = "preference_ringtone";
     public static final String PREFERENCE_RATE      = "preference_about_rate";
     public static final String PREFERENCE_FEEDBACK  = "preference_about_feedback";
     public static final String PREFERENCE_VERSION   = "preference_about_version";
@@ -49,15 +47,6 @@ public class MoreFragment extends PreferenceFragment {
      * A utility method to initialize preferences and about data
      */
     private void initializeData() {
-        final RingtonePreference ringtonePreference = (RingtonePreference) findPreference(PREFERENCE_RINGTONE);
-        ringtonePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                updateRingtoneSummary(ringtonePreference, (String) newValue);
-                return true;
-            }
-        });
-
         Preference rate = findPreference(PREFERENCE_RATE);
         rate.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
@@ -106,16 +95,7 @@ public class MoreFragment extends PreferenceFragment {
             }
         });
 
-        updateRingtoneSummary(ringtonePreference, PreferenceUtils.getRingtone());
-
         String versionName = PreferenceUtils.getAppVersionName(getActivity());
         version.setSummary(versionName);
-    }
-
-    private void updateRingtoneSummary(RingtonePreference ringtonePreference, String newValue) {
-        Ringtone ringtone = RingtoneManager.getRingtone(getActivity(), Uri.parse(newValue));
-        String name = ringtone.getTitle(getActivity());
-
-        ringtonePreference.setSummary(name);
     }
 }

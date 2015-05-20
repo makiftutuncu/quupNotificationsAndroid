@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
-import com.mehmetakiftutuncu.quupnotifications.fragments.MoreFragment;
 import com.orhanobut.logger.Logger;
 import com.pixplicity.easyprefs.library.Prefs;
 
@@ -63,14 +62,6 @@ public class PreferenceUtils {
     public static void setLastNotification(String key, String jsonString) {
         String hash = new String(Hex.encodeHex(DigestUtils.sha(jsonString)));
         Prefs.putString(KEY_LASTNOTIFICATION_HASH + key, hash);
-    }
-
-    public static boolean getVibration() {
-        return Prefs.getBoolean(MoreFragment.PREFERENCE_VIBRATION, true);
-    }
-
-    public static String getRingtone() {
-        return Prefs.getString(MoreFragment.PREFERENCE_RINGTONE, "content://settings/system/notification_sound");
     }
 
     public static int getAppVersion(Context context) {

@@ -119,17 +119,14 @@ public class NotificationService extends IntentService {
         Intent notificationIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(RequestUtils.Quup.NOTIFICATION + quupNotification.id));
         PendingIntent notificationPendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent, 0);
 
-        Load load = PugNotification.with(getApplicationContext())
+        return PugNotification.with(getApplicationContext())
                 .load()
                 .autoCancel(true)
                 .title(getTitle(quupNotification))
                 .message(getMessage(quupNotification))
                 .smallIcon(getSmallIcon(quupNotification))
                 .largeIcon(R.mipmap.ic_launcher)
-                .click(notificationPendingIntent)
-                .sound(Uri.parse(PreferenceUtils.getRingtone()));
-
-        return PreferenceUtils.getVibration() ? load.vibrate(new long[] {1000, 1000}) : load;
+                .click(notificationPendingIntent);
     }
 
     private String getTitle(QuupNotification quupNotification) {

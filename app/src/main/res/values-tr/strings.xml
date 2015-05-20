@@ -21,10 +21,6 @@
     <string name="welcome_logout">Çıkış</string>
 
     <string name="more_more">Daha Fazlası</string>
-    <string name="more_notifications_title">Bildirimler</string>
-    <string name="more_notifications_vibration">Titreşim</string>
-    <string name="more_notifications_vibration_summary">Bildirim alındığında cihaz titresin.</string>
-    <string name="more_notifications_ringtone">Zil Sesi</string>
     <string name="more_about_title">Hakkında</string>
     <string name="more_about_rate">Oy Verin &amp; Yorum Yapın</string>
     <string name="more_about_feedback">Geri Bildirim Gönderin</string>
