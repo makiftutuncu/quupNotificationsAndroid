@@ -61,17 +61,17 @@ public class LogoutTask extends AsyncTask<Void, Void, Boolean> {
 
                 Response response = mClient.newCall(request).execute();
 
-                if (response.isSuccessful()) {
-                    PreferenceUtils.setUsername("");
-                    return true;
-                } else {
+                if (!response.isSuccessful()) {
                     Logger.e("Failed to logout, request failed! status: %d\n\n%s", response.code(), response.body().string());
-                    return false;
                 }
             } catch (Throwable t) {
                 Logger.e(t, "Failed to logout!");
-                return false;
             }
+
+            PreferenceUtils.setUsername("");
+            PreferenceUtils.setRegistrationId(mContext, "");
+
+            return true;
         }
     }
 
