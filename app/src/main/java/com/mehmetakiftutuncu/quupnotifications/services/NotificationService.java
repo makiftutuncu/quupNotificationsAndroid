@@ -156,6 +156,9 @@ public class NotificationService extends IntentService {
             case Mention:
                 return R.string.notifications_mention;
 
+            case ReShareEntry:
+                return R.string.notifications_share;
+
             case DirectMessage:
                 return R.string.notifications_message;
 
@@ -178,6 +181,9 @@ public class NotificationService extends IntentService {
 
             case Mention:
                 return R.mipmap.ic_mention;
+
+            case ReShareEntry:
+                return R.mipmap.ic_share;
 
             case DirectMessage:
                 return R.mipmap.ic_message;

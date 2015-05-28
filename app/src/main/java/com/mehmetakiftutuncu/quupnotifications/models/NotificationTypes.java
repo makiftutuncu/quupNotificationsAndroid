@@ -5,6 +5,7 @@ public enum NotificationTypes {
     EntryLike,
     CommentLike,
     Follow,
+    ReShareEntry,
     Mention,
     DirectMessage
 }

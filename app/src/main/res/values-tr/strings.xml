@@ -32,6 +32,7 @@
     <string name="notifications_commentLike">yorumunuzu beğendi.</string>
     <string name="notifications_follow">sizi takip etmeye başladı.</string>
     <string name="notifications_mention">sizden bahsetti.</string>
+    <string name="notifications_share">quup\'unuzu paylaştı.</string>
     <string name="notifications_message">size mesaj gönderdi.</string>
     <string name="notifications_otherUsers">ve %1d başkası</string>
     <string name="notifications_title">%1d Bildirim</string>

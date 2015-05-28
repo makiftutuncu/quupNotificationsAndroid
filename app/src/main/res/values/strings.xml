@@ -32,6 +32,7 @@
     <string name="notifications_commentLike">liked your comment.</string>
     <string name="notifications_follow">started following you.</string>
     <string name="notifications_mention">mentioned you.</string>
+    <string name="notifications_share">shared your quup.</string>
     <string name="notifications_message">messaged you.</string>
     <string name="notifications_otherUsers">and %1d others</string>
     <string name="notifications_title">%1d Notifications</string>
