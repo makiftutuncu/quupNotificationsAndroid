@@ -1,23 +1,9 @@
-/*
- * Copyright (C) 2015 Mehmet Akif Tütüncü
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.mehmetakiftutuncu.quupnotifications.tasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.mehmetakiftutuncu.quupnotifications.utilities.NetworkUtils;
 import com.mehmetakiftutuncu.quupnotifications.utilities.PreferenceUtils;
 import com.mehmetakiftutuncu.quupnotifications.utilities.RequestUtils;
@@ -50,12 +36,11 @@ public class LogoutTask extends AsyncTask<Void, Void, Boolean> {
             OkHttpClient mClient = new OkHttpClient();
 
             try {
-                String registrationId = PreferenceUtils.getRegistrationId(mContext);
-                String logoutJson     = String.format("{\"registrationId\":\"%s\"}", registrationId);
-                RequestBody body      = RequestBody.create(RequestUtils.JSON, logoutJson);
+                String registrationId = FirebaseInstanceId.getInstance().getToken();
+                RequestBody body      = RequestBody.create(RequestUtils.JSON, "{}");
 
                 Request request = new Request.Builder()
-                        .url(RequestUtils.URL.LOGOUT)
+                        .url(RequestUtils.URL.LOGOUT + registrationId)
                         .post(body)
                         .build();
 
@@ -69,14 +54,12 @@ public class LogoutTask extends AsyncTask<Void, Void, Boolean> {
             }
 
             PreferenceUtils.setUsername("");
-            PreferenceUtils.setRegistrationId(mContext, "");
 
             return true;
         }
     }
 
-    @Override
-    protected void onPostExecute(Boolean isSuccessful) {
+    @Override protected void onPostExecute(Boolean isSuccessful) {
         super.onPostExecute(isSuccessful);
 
         if (mListener != null) {
@@ -89,8 +72,8 @@ public class LogoutTask extends AsyncTask<Void, Void, Boolean> {
     }
 
     public interface OnLogoutListener {
-        public void onLogoutSuccess(String username);
+        void onLogoutSuccess(String username);
 
-        public void onLogoutFailed();
+        void onLogoutFailed();
     }
 }

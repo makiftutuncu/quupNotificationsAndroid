@@ -2,23 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mehmetakiftutuncu.quupnotifications">
 
-    <!-- Custom permission so only this app can receive its messages -->
-    <permission android:name="com.mehmetakiftutuncu.quupnotifications.permission.C2D_MESSAGE" />
-
     <!-- Obviously -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- To check internet availability -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <!-- Keeps the processor from sleeping when a message is received -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <!-- For registering to and receiving data from GCM -->
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-
-    <!-- Using the custom permission above -->
-    <uses-permission android:name="com.mehmetakiftutuncu.quupnotifications.permission.C2D_MESSAGE" />
 
     <application
         android:name=".QuupNotificationApplication"
@@ -26,11 +14,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/QuupNotifications">
-
-        <!-- Required for applications which use Google Play Services. -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".activities.MainActivity"
@@ -48,24 +31,12 @@
 
         <activity android:name=".activities.MoreActivity" />
 
-        <!--
-          WakefulBroadcastReceiver that will receive intents from GCM
-          services and hand them to the custom IntentService.
-          The com.google.android.c2dm.permission.SEND permission is necessary
-          so only GCM services can send data messages for the app.
-        -->
-        <receiver
-            android:name=".receivers.NotificationReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
-
+        <service
+            android:name=".services.NotificationService"
+            android:exported="false">
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="com.mehmetakiftutuncu.quupnotifications" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </receiver>
-
-        <service android:name=".services.NotificationService" />
-
+        </service>
     </application>
-
 </manifest>

@@ -25,8 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_large"
-        android:background="@color/primary"
+        style="?android:textAppearanceButton"
         android:text="@string/error_back"
-        android:textColor="@color/white" />
-
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:theme="@style/QuupNotifications.Button" />
 </LinearLayout>

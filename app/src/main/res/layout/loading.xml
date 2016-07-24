@@ -16,5 +16,4 @@
         android:textSize="@dimen/textSize_medium"
         dots:autoplay="true"
         dots:period="1000" />
-
 </LinearLayout>

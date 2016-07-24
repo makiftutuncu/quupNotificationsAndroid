@@ -3,7 +3,6 @@ package com.mehmetakiftutuncu.quupnotifications.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,23 +17,16 @@ import com.mehmetakiftutuncu.quupnotifications.utilities.PreferenceUtils;
 import com.orhanobut.logger.Logger;
 
 public class WelcomeActivity extends AppCompatActivity implements LogoutTask.OnLogoutListener {
-    private Toolbar mToolbar;
     private MultiStateView multiStateView;
-    private TextView mInfo;
-    private Button mLogout;
-    private Button mBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        mToolbar = (Toolbar)  findViewById(R.id.toolbar);
         multiStateView = (MultiStateView) findViewById(R.id.multiStateView_logout);
-        mInfo    = (TextView) findViewById(R.id.textView_info);
-        mLogout  = (Button)   findViewById(R.id.button_logout);
-
-        setSupportActionBar(mToolbar);
+        TextView mInfo = (TextView) findViewById(R.id.textView_info);
+        Button mLogout = (Button) findViewById(R.id.button_logout);
 
         final String username = PreferenceUtils.getUsername();
 
@@ -100,7 +92,7 @@ public class WelcomeActivity extends AppCompatActivity implements LogoutTask.OnL
     @Override
     public void onLogoutFailed() {
         changeStateTo(MultiStateView.ViewState.ERROR);
-        mBack = (Button) findViewById(R.id.button_back);
+        Button mBack = (Button) findViewById(R.id.button_back);
 
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override

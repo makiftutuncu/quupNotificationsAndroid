@@ -33,9 +33,6 @@ Permission | Details
 ---------- | -------
 [android.permission.INTERNET](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET) | This permission is needed to connect to the internet. Notifications are received over the internet.
 [android.permission.ACCESS_NETWORK_STATE](http://developer.android.com/reference/android/Manifest.permission.html#ACCESS_NETWORK_STATE) | This permission is required to check if the device is connected to the internet.
-[android.permission.WAKE_LOCK](http://developer.android.com/reference/android/Manifest.permission.html#WAKE_LOCK) | This permission is required to keep device awake while processing received Google Cloud Messaging message.
-com.google.android.c2dm.permission.RECEIVE | This permission is required for being able to receive Google Cloud Messaging messages.
-com.mehmetakiftutuncu.quupnotifications.permission.C2D_MESSAGE | This permission is a customized permission for receiving Google Cloud Messaging messages specific to this application.
 
 Licenses
 --------------
@@ -67,7 +64,3 @@ quup Notifications use following open source software.
 * [Picasso](https://github.com/square/picasso)
 * [Apache Commons Codec](https://commons.apache.org/proper/commons-codec)
 * [WaitingDots](https://github.com/tajchert/WaitingDots)
- 
-Special Thanks
---------------
-I would like to specifically thank [**@isisdensm**](https://quup.com/isisdensm) for helping me find the idea, develop the application and test it. I would also like to thank all other quup users who supported me.

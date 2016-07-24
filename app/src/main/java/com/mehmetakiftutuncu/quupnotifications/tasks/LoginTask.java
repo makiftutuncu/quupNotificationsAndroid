@@ -1,23 +1,9 @@
-/*
- * Copyright (C) 2015 Mehmet Akif Tütüncü
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.mehmetakiftutuncu.quupnotifications.tasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.mehmetakiftutuncu.quupnotifications.utilities.NetworkUtils;
 import com.mehmetakiftutuncu.quupnotifications.utilities.PreferenceUtils;
 import com.mehmetakiftutuncu.quupnotifications.utilities.RequestUtils;
@@ -40,8 +26,7 @@ public class LoginTask extends AsyncTask<Void, Void, Boolean> {
         mListener = listener;
     }
 
-    @Override
-    protected Boolean doInBackground(Void... params) {
+    @Override protected Boolean doInBackground(Void... params) {
         if (mListener == null) {
             Logger.e("Failed to login, listener is null!");
             return false;
@@ -52,7 +37,7 @@ public class LoginTask extends AsyncTask<Void, Void, Boolean> {
             OkHttpClient mClient = new OkHttpClient();
 
             try {
-                String registrationId = PreferenceUtils.getRegistrationId(mContext);
+                String registrationId = FirebaseInstanceId.getInstance().getToken();
                 String loginJson = String.format(
                     "{\"registrationId\":\"%s\", \"username\":\"%s\", \"password\":\"%s\"}", registrationId, mUsername, mPassword
                 );
@@ -79,8 +64,7 @@ public class LoginTask extends AsyncTask<Void, Void, Boolean> {
         }
     }
 
-    @Override
-    protected void onPostExecute(Boolean isSuccessful) {
+    @Override protected void onPostExecute(Boolean isSuccessful) {
         super.onPostExecute(isSuccessful);
 
         if (mListener != null) {
@@ -93,8 +77,8 @@ public class LoginTask extends AsyncTask<Void, Void, Boolean> {
     }
 
     public interface OnLoginListener {
-        public void onLoginSuccess();
+        void onLoginSuccess();
 
-        public void onLoginFailed();
+        void onLoginFailed();
     }
 }

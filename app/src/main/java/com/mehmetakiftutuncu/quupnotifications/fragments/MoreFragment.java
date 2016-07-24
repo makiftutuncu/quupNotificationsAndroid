@@ -1,13 +1,10 @@
 package com.mehmetakiftutuncu.quupnotifications.fragments;
 
 import android.content.Intent;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.preference.RingtonePreference;
 
 import com.mehmetakiftutuncu.quupnotifications.R;
 import com.mehmetakiftutuncu.quupnotifications.utilities.PreferenceUtils;
@@ -18,12 +15,6 @@ import de.psdev.licensesdialog.licenses.MITLicense;
 import de.psdev.licensesdialog.model.Notice;
 import de.psdev.licensesdialog.model.Notices;
 
-/**
- * A {@link android.preference.PreferenceFragment} to show contents of
- * {@link com.mehmetakiftutuncu.quupnotifications.activities.MoreActivity}
- *
- * @author mehmetakiftutuncu
- */
 public class MoreFragment extends PreferenceFragment {
     public static final String PREFERENCE_RATE      = "preference_about_rate";
     public static final String PREFERENCE_FEEDBACK  = "preference_about_feedback";
@@ -34,8 +25,7 @@ public class MoreFragment extends PreferenceFragment {
 
     public static final String FEEDBACK_CONTACT = "m.akif.tutuncu@gmail.com";
 
-    @Override
-    public void onCreate(final Bundle savedInstanceState) {
+    @Override public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.more);
@@ -43,9 +33,6 @@ public class MoreFragment extends PreferenceFragment {
         initializeData();
     }
 
-    /**
-     * A utility method to initialize preferences and about data
-     */
     private void initializeData() {
         Preference rate = findPreference(PREFERENCE_RATE);
         rate.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
