@@ -31,6 +31,8 @@
 
         <activity android:name=".activities.MoreActivity" />
 
+        <activity android:name=".activities.NotificationTypesActivity" android:label="@string/more_notifications_types" />
+
         <service
             android:name=".services.NotificationService"
             android:exported="false">

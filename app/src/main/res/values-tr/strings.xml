@@ -21,6 +21,19 @@
     <string name="welcome_logout">Oturumu Kapat</string>
 
     <string name="more_more">Daha Fazlası</string>
+    <string name="more_notifications_title">Bildirim Ayarları</string>
+    <string name="more_notifications_sound">Ses</string>
+    <string name="more_notifications_sound_silent">Sessiz</string>
+    <string name="more_notifications_vibrate">Titreşim</string>
+    <string name="more_notifications_types">Bildirim Türleri</string>
+    <string name="more_notifications_types_summary">Hangi durumlarda bildirim gösterileceğini seçin.</string>
+    <string name="more_notifications_enabled_comment">quup\'unuza yorum yapıldığında</string>
+    <string name="more_notifications_enabled_like">quup\'unuz beğenildiğinde</string>
+    <string name="more_notifications_enabled_commentLike">Yorumunuz beğenildiğinde</string>
+    <string name="more_notifications_enabled_follow">Birisi sizi takip ettiğinde</string>
+    <string name="more_notifications_enabled_mention">Birisi sizden bahsettiğinde</string>
+    <string name="more_notifications_enabled_share">quup\'unuz paylaşıldığında</string>
+    <string name="more_notifications_enabled_message">Birisi size mesaj gönderdiğinde</string>
     <string name="more_about_title">Hakkında</string>
     <string name="more_about_rate">Oy Verin &amp; Yorum Yapın</string>
     <string name="more_about_feedback">Geri Bildirim Gönderin</string>

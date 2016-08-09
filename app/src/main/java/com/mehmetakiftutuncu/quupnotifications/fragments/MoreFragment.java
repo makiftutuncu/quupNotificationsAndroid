@@ -1,12 +1,16 @@
 package com.mehmetakiftutuncu.quupnotifications.fragments;
 
 import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.RingtonePreference;
 
 import com.mehmetakiftutuncu.quupnotifications.R;
+import com.mehmetakiftutuncu.quupnotifications.activities.NotificationTypesActivity;
 import com.mehmetakiftutuncu.quupnotifications.utilities.PreferenceUtils;
 
 import de.psdev.licensesdialog.LicensesDialog;
@@ -16,10 +20,12 @@ import de.psdev.licensesdialog.model.Notice;
 import de.psdev.licensesdialog.model.Notices;
 
 public class MoreFragment extends PreferenceFragment {
-    public static final String PREFERENCE_RATE      = "preference_about_rate";
-    public static final String PREFERENCE_FEEDBACK  = "preference_about_feedback";
-    public static final String PREFERENCE_VERSION   = "preference_about_version";
-    public static final String PREFERENCE_LICENSES  = "preference_about_licenses";
+    public static final String PREFERENCE_NOTIFICATION_SOUND = "notifications_sound";
+    public static final String PREFERENCE_NOTIFICATION_TYPES = "notification_types";
+    public static final String PREFERENCE_RATE               = "about_rate";
+    public static final String PREFERENCE_FEEDBACK           = "about_feedback";
+    public static final String PREFERENCE_VERSION            = "about_version";
+    public static final String PREFERENCE_LICENSES           = "about_licenses";
 
     public static final String RATE_URI = "market://details?id=com.mehmetakiftutuncu.quupnotifications";
 
@@ -34,6 +40,26 @@ public class MoreFragment extends PreferenceFragment {
     }
 
     private void initializeData() {
+        RingtonePreference sound = (RingtonePreference) findPreference(PREFERENCE_NOTIFICATION_SOUND);
+        sound.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override public boolean onPreferenceChange(Preference preference, Object newValue) {
+                updateSoundSummary(preference, (String) newValue);
+
+                return true;
+            }
+        });
+        updateSoundSummary(sound, PreferenceUtils.Notifications.sound());
+
+        Preference notificationTypes = findPreference(PREFERENCE_NOTIFICATION_TYPES);
+        notificationTypes.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(getActivity(), NotificationTypesActivity.class);
+                startActivity(intent);
+                return true;
+            }
+        });
+
         Preference rate = findPreference(PREFERENCE_RATE);
         rate.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
@@ -64,14 +90,13 @@ public class MoreFragment extends PreferenceFragment {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 Notices notices = new Notices();
-                notices.addNotice(new Notice("PugNotification",      "https://github.com/halysongoncalves/PugNotification", "Copyright 2013 Halyson L. Gonçalves, Inc.", new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("MultiStateView",       "https://github.com/Kennyc1012/MultiStateView",        "Copyright 2015 Kenny Campagna",             new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("Logger",               "https://github.com/orhanobut/Logger",                 "Copyright 2015 Orhan Obut",                 new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("EasyPreferences",      "https://github.com/Pixplicity/EasyPreferences",       "Copyright 2014 Pixplicity, bv.",            new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("OkHttp",               "https://github.com/square/okhttp",                    "Copyright 2013 Square, Inc.",               new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("Picasso",              "https://github.com/square/picasso",                   "Copyright 2013 Square, Inc.",               new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("Apache Commons Codec", "https://commons.apache.org/proper/commons-codec",     "",                                          new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("WaitingDots",          "https://github.com/tajchert/WaitingDots",             "Copyright (c) 2015 Michal Tajchert",        new MITLicense()));
+                notices.addNotice(new Notice("PugNotification", "https://github.com/halysongoncalves/PugNotification", "Copyright 2013 Halyson L. Gonçalves, Inc.", new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("MultiStateView",  "https://github.com/Kennyc1012/MultiStateView",        "Copyright 2015 Kenny Campagna",             new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("Logger",          "https://github.com/orhanobut/Logger",                 "Copyright 2015 Orhan Obut",                 new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("EasyPreferences", "https://github.com/Pixplicity/EasyPreferences",       "Copyright 2014 Pixplicity, bv.",            new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("OkHttp",          "https://github.com/square/okhttp",                    "Copyright 2013 Square, Inc.",               new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("Picasso",         "https://github.com/square/picasso",                   "Copyright 2013 Square, Inc.",               new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("WaitingDots",     "https://github.com/tajchert/WaitingDots",             "Copyright (c) 2015 Michal Tajchert",        new MITLicense()));
 
                 new LicensesDialog.Builder(getActivity())
                         .setNotices(notices)
@@ -84,5 +109,16 @@ public class MoreFragment extends PreferenceFragment {
 
         String versionName = PreferenceUtils.getAppVersionName(getActivity());
         version.setSummary(versionName);
+    }
+
+    private void updateSoundSummary(Preference preference, String newValue) {
+        if (newValue == null || newValue.trim().isEmpty()) {
+            preference.setSummary(getString(R.string.more_notifications_sound_silent));
+        } else {
+            Ringtone ringtone = RingtoneManager.getRingtone(getActivity(), Uri.parse(newValue));
+            String name = ringtone.getTitle(getActivity());
+
+            preference.setSummary(name);
+        }
     }
 }

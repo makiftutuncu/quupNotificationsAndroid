@@ -1,21 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/more_notifications_title">
+        <RingtonePreference
+            android:key="notifications_sound"
+            android:title="@string/more_notifications_sound"
+            android:ringtoneType="notification"
+            android:showDefault="true"
+            android:showSilent="true"/>
+
+        <SwitchPreference
+            android:key="notifications_vibration"
+            android:title="@string/more_notifications_vibrate"
+            android:defaultValue="true"/>
+
+        <Preference
+            android:key="notification_types"
+            android:title="@string/more_notifications_types"
+            android:summary="@string/more_notifications_types_summary" />
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/more_about_title">
         <Preference
-            android:key="preference_about_rate"
+            android:key="about_rate"
             android:title="@string/more_about_rate" />
 
         <Preference
-            android:key="preference_about_feedback"
+            android:key="about_feedback"
             android:title="@string/more_about_feedback" />
 
         <Preference
-            android:key="preference_about_version"
+            android:key="about_version"
             android:title="@string/more_about_version" />
 
         <Preference
-            android:key="preference_about_licenses"
+            android:key="about_licenses"
             android:title="@string/more_about_openSource" />
     </PreferenceCategory>
 </PreferenceScreen>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:key="notifications_enabled_comment"
+        android:title="@string/more_notifications_enabled_comment"
+        android:defaultValue="true"/>
+
+    <SwitchPreference
+        android:key="notifications_enabled_like"
+        android:title="@string/more_notifications_enabled_like"
+        android:defaultValue="true"/>
+
+    <SwitchPreference
+        android:key="notifications_enabled_commentLike"
+        android:title="@string/more_notifications_enabled_commentLike"
+        android:defaultValue="true"/>
+
+    <SwitchPreference
+        android:key="notifications_enabled_follow"
+        android:title="@string/more_notifications_enabled_follow"
+        android:defaultValue="true"/>
+
+    <SwitchPreference
+        android:key="notifications_enabled_mention"
+        android:title="@string/more_notifications_enabled_mention"
+        android:defaultValue="true"/>
+
+    <SwitchPreference
+        android:key="notifications_enabled_share"
+        android:title="@string/more_notifications_enabled_share"
+        android:defaultValue="true"/>
+
+    <SwitchPreference
+        android:key="notifications_enabled_message"
+        android:title="@string/more_notifications_enabled_message"
+        android:defaultValue="true"/>
+</PreferenceScreen>
