@@ -62,5 +62,4 @@ quup Notifications use following open source software.
 * [EasyPreferences](https://github.com/Pixplicity/EasyPreferences)
 * [OkHttp](https://github.com/square/okhttp)
 * [Picasso](https://github.com/square/picasso)
-* [Apache Commons Codec](https://commons.apache.org/proper/commons-codec)
 * [WaitingDots](https://github.com/tajchert/WaitingDots)
