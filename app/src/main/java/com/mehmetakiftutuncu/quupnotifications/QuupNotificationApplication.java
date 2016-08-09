@@ -12,9 +12,9 @@ public class QuupNotificationApplication extends Application {
         super.onCreate();
 
         Logger.init("QuupNotifications")
-              .setMethodCount(5)
+              .methodOffset(5)
               .hideThreadInfo()
-              .setLogLevel(BuildConfig.DEBUG ? LogLevel.FULL : LogLevel.NONE);
+              .logLevel(BuildConfig.DEBUG ? LogLevel.FULL : LogLevel.NONE);
 
         new Prefs.Builder()
                 .setContext(this)

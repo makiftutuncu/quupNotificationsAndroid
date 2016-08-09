@@ -37,7 +37,7 @@ public class WelcomeActivity extends AppCompatActivity implements LogoutTask.OnL
             public void onClick(View v) {
                 Logger.d("Logging in out as %s...", username);
 
-                changeStateTo(MultiStateView.ViewState.LOADING);
+                changeStateTo(MultiStateView.VIEW_STATE_LOADING);
 
                 new LogoutTask(WelcomeActivity.this, username, WelcomeActivity.this).execute();
             }
@@ -66,20 +66,20 @@ public class WelcomeActivity extends AppCompatActivity implements LogoutTask.OnL
     @Override
     public void onBackPressed() {
         if (isErrorState()) {
-            changeStateTo(MultiStateView.ViewState.CONTENT);
+            changeStateTo(MultiStateView.VIEW_STATE_CONTENT);
         } else {
             super.onBackPressed();
         }
     }
 
-    private void changeStateTo(MultiStateView.ViewState newState) {
-        if (multiStateView != null && !multiStateView.getViewState().equals(newState)) {
+    private void changeStateTo(int newState) {
+        if (multiStateView != null && multiStateView.getViewState() != newState) {
             multiStateView.setViewState(newState);
         }
     }
 
     private boolean isErrorState() {
-        return multiStateView != null && multiStateView.getViewState().equals(MultiStateView.ViewState.ERROR);
+        return multiStateView != null && multiStateView.getViewState() == MultiStateView.VIEW_STATE_ERROR;
     }
 
     @Override
@@ -91,13 +91,13 @@ public class WelcomeActivity extends AppCompatActivity implements LogoutTask.OnL
 
     @Override
     public void onLogoutFailed() {
-        changeStateTo(MultiStateView.ViewState.ERROR);
+        changeStateTo(MultiStateView.VIEW_STATE_ERROR);
         Button mBack = (Button) findViewById(R.id.button_back);
 
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeStateTo(MultiStateView.ViewState.CONTENT);
+                changeStateTo(MultiStateView.VIEW_STATE_CONTENT);
             }
         });
     }
