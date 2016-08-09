@@ -19,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // TODO: Remove
-        // GoogleAPIUtils.checkGooglePlayServices(this);
+        GoogleAPIUtils.checkGooglePlayServices(this);
 
         Button mLogin = (Button) findViewById(R.id.button_login);
 
