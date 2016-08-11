@@ -63,3 +63,4 @@ quup Notifications use following open source software.
 * [OkHttp](https://github.com/square/okhttp)
 * [Picasso](https://github.com/square/picasso)
 * [WaitingDots](https://github.com/tajchert/WaitingDots)
+* [Android Material Shadow Generator](https://github.com/Maddoc42/Android-Material-Icon-Generator)

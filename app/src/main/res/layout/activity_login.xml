@@ -9,73 +9,64 @@
     msv:msv_loadingView="@layout/loading"
     msv:msv_viewState="content">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_marginTop="@dimen/spacing_small"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/quup" />
+                android:layout_marginRight="@dimen/spacing_small"
+                android:src="@mipmap/ic_person" />
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/editText_login_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:hint="@string/login_username"
+                android:singleLine="true" />
+        </LinearLayout>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/spacing_small"
-                    android:src="@mipmap/ic_person" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/editText_login_username"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/login_username"
-                    android:singleLine="true" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/spacing_small"
-                    android:src="@mipmap/ic_key" />
-
-                <EditText
-                    android:id="@+id/editText_login_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/login_password"
-                    android:inputType="textPassword" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/button_login"
-                style="?android:textAppearanceButton"
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_medium"
-                android:text="@string/login_login"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:theme="@style/QuupNotifications.Button" />
+                android:layout_marginRight="@dimen/spacing_small"
+                android:src="@mipmap/ic_key" />
+
+            <EditText
+                android:id="@+id/editText_login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_password"
+                android:inputType="textPassword" />
         </LinearLayout>
-    </ScrollView>
+
+        <Button
+            android:id="@+id/button_login"
+            style="?android:textAppearanceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:text="@string/login_login"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:theme="@style/QuupNotifications.Button" />
+    </LinearLayout>
 </com.kennyc.view.MultiStateView>

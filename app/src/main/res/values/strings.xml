@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">quup Notifications</string>
+    <string name="app_name">Notifications for quup</string>
 
     <string name="error_title">Error: Whoops!</string>
     <string name="error_details">Make sure your device is connected to the internet.\n\nIf you are trying to login, your username or password might be invalid.\n\nOtherwise, quup Notifications Server or quup itself might be down.\n\nPlease try again later and if error continues, inform the developer.</string>
@@ -9,9 +9,9 @@
 
     <string name="loading">Loading, please wait</string>
 
-    <string name="feedback_subject">About quup Notifications</string>
+    <string name="feedback_subject">About Notifications for quup Application</string>
 
-    <string name="main_welcome">Welcome to\nquup Notifications!</string>
+    <string name="main_welcome">Welcome!\nPlease login to continue.</string>
 
     <string name="login_username">Username</string>
     <string name="login_password">Password</string>
@@ -27,9 +27,9 @@
     <string name="more_notifications_vibrate">Vibrate</string>
     <string name="more_notifications_types">Notification Types</string>
     <string name="more_notifications_types_summary">Select what events should show notifications.</string>
-    <string name="more_notifications_enabled_comment">Comments on your quup</string>
-    <string name="more_notifications_enabled_like">Likes on your quup</string>
-    <string name="more_notifications_enabled_commentLike">Likes on your comments</string>
+    <string name="more_notifications_enabled_comment">Someone comments on your quup</string>
+    <string name="more_notifications_enabled_like">Someone likes your quup</string>
+    <string name="more_notifications_enabled_commentLike">Someone likes your comment</string>
     <string name="more_notifications_enabled_follow">Someone follows you</string>
     <string name="more_notifications_enabled_mention">Someone mentions you</string>
     <string name="more_notifications_enabled_share">Someone shares your quup</string>

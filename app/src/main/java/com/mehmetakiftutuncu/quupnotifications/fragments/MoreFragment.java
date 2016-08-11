@@ -90,13 +90,14 @@ public class MoreFragment extends PreferenceFragment {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 Notices notices = new Notices();
-                notices.addNotice(new Notice("PugNotification", "https://github.com/halysongoncalves/PugNotification", "Copyright 2013 Halyson L. Gonçalves, Inc.", new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("MultiStateView",  "https://github.com/Kennyc1012/MultiStateView",        "Copyright 2015 Kenny Campagna",             new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("Logger",          "https://github.com/orhanobut/Logger",                 "Copyright 2015 Orhan Obut",                 new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("EasyPreferences", "https://github.com/Pixplicity/EasyPreferences",       "Copyright 2014 Pixplicity, bv.",            new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("OkHttp",          "https://github.com/square/okhttp",                    "Copyright 2013 Square, Inc.",               new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("Picasso",         "https://github.com/square/picasso",                   "Copyright 2013 Square, Inc.",               new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("WaitingDots",     "https://github.com/tajchert/WaitingDots",             "Copyright (c) 2015 Michal Tajchert",        new MITLicense()));
+                notices.addNotice(new Notice("PugNotification",                   "https://github.com/halysongoncalves/PugNotification",         "Copyright 2013 Halyson L. Gonçalves, Inc.", new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("MultiStateView",                    "https://github.com/Kennyc1012/MultiStateView",                "Copyright 2015 Kenny Campagna",             new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("Logger",                            "https://github.com/orhanobut/Logger",                         "Copyright 2015 Orhan Obut",                 new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("EasyPreferences",                   "https://github.com/Pixplicity/EasyPreferences",               "Copyright 2014 Pixplicity, bv.",            new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("OkHttp",                            "https://github.com/square/okhttp",                            "Copyright 2013 Square, Inc.",               new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("Picasso",                           "https://github.com/square/picasso",                           "Copyright 2013 Square, Inc.",               new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("WaitingDots",                       "https://github.com/tajchert/WaitingDots",                     "Copyright (c) 2015 Michal Tajchert",        new MITLicense()));
+                notices.addNotice(new Notice("Android Material Shadow Generator", "https://github.com/Maddoc42/Android-Material-Icon-Generator", "Copyright 2016 Philipp Eichhorn",           new ApacheSoftwareLicense20()));
 
                 new LicensesDialog.Builder(getActivity())
                         .setNotices(notices)

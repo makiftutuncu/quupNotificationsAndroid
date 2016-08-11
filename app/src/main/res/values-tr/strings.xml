@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">quup Bildirimleri</string>
+    <string name="app_name">quup İçin Bildirimler</string>
 
     <string name="error_title">Hata: Hay aksi!</string>
     <string name="error_details">Cihazınızın internete bağlı olduğundan emin olun.\n\nEğer oturum açmaya çalışıyorsanız, kullanıcı adınız veya şifreniz yanlış yazılmış olabilir.\n\nAyrıca, quup Bildirimleri Sunucusu ya da quup\'un kendisi çalışmıyor da olabilir.\n\nLütfen daha sonra tekrar deneyin ve eğer hata devam ederse, geliştiriciyi bilgilendirin.</string>
@@ -9,9 +9,9 @@
 
     <string name="loading">Yükleniyor, lütfen bekleyin</string>
 
-    <string name="feedback_subject">quup Bildirimleri Hakkında</string>
+    <string name="feedback_subject">quup İçin Bildirimler Uygulaması Hakkında</string>
 
-    <string name="main_welcome">quup Bildirimleri\'ne\nHoş Geldiniz!</string>
+    <string name="main_welcome">Hoş Geldiniz!\nDevam etmek için lütfen oturum açın.</string>
 
     <string name="login_username">Kullanıcı Adı</string>
     <string name="login_password">Şifre</string>
@@ -27,12 +27,12 @@
     <string name="more_notifications_vibrate">Titreşim</string>
     <string name="more_notifications_types">Bildirim Türleri</string>
     <string name="more_notifications_types_summary">Hangi durumlarda bildirim gösterileceğini seçin.</string>
-    <string name="more_notifications_enabled_comment">quup\'unuza yorum yapıldığında</string>
-    <string name="more_notifications_enabled_like">quup\'unuz beğenildiğinde</string>
-    <string name="more_notifications_enabled_commentLike">Yorumunuz beğenildiğinde</string>
+    <string name="more_notifications_enabled_comment">Birisi quup\'unuza yorum yaptığında</string>
+    <string name="more_notifications_enabled_like">Birisi quup\'unuzu beğendiğinde</string>
+    <string name="more_notifications_enabled_commentLike">Birisi yorumunuzu beğendiğinde</string>
     <string name="more_notifications_enabled_follow">Birisi sizi takip ettiğinde</string>
     <string name="more_notifications_enabled_mention">Birisi sizden bahsettiğinde</string>
-    <string name="more_notifications_enabled_share">quup\'unuz paylaşıldığında</string>
+    <string name="more_notifications_enabled_share">Birisi quup\'unuzu paylaştığında</string>
     <string name="more_notifications_enabled_message">Birisi size mesaj gönderdiğinde</string>
     <string name="more_about_title">Hakkında</string>
     <string name="more_about_rate">Oy Verin &amp; Yorum Yapın</string>

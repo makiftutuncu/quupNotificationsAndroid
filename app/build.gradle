@@ -8,8 +8,8 @@ android {
         applicationId "com.mehmetakiftutuncu.quupnotifications"
         minSdkVersion 15
         targetSdkVersion 24
-        versionCode 4
-        versionName "2.1"
+        versionCode 5
+        versionName "2.1.1"
         multiDexEnabled true
     }
 
