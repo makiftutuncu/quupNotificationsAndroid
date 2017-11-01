@@ -6,15 +6,6 @@ Welcome to quup Notifications!
 Using this application, you will be able to see notifications on your mobile device when you have a notification on https://quup.com, Turkey's social network. Logging in to the application once is enough. After that, your notifications will be checked regularly and sent to your mobile device. You don't have to do anything else.
 Notifications will launch related quup pages on the browser of your device.
 
-Download
---------------
-quup Notifications is on Google Play Store, available in English and Turkish for devices running Android 4.0.3+.
-
-<a href="https://play.google.com/store/apps/details?id=com.mehmetakiftutuncu.quupnotifications">
-  <img alt="Get it on Google Play"
-       src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
-</a>
-
 Privacy
 --------------
 quup Notifications application does not read or store your personal information in any way. Your notifications are retrieved from quup by [quup Notifications Server](https://github.com/mehmetakiftutuncu/quupNotificationsServer) and sent directly to your device.
